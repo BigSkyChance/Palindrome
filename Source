@@ -1,0 +1,42 @@
+// Chancellor Griffin
+// June 2016
+// Lab 6
+// Palindrome Sensor
+// ******************
+
+#include <iostream>
+
+using namespace std;
+
+#include <string.h>
+#include <stdlib.h>
+
+
+void main()
+{
+	cout << "Welcome to Chancellors palindrome finderino" << endl;
+
+	const int MaxChars(20);
+
+	int result;
+	char Str1[MaxChars + 1];
+	char Str2[MaxChars + 1];
+
+	cout << "Enter a word: ";
+	cin.getline(Str1, MaxChars + 1);
+	if (cin.fail())
+		cin.clear();
+	else;
+	cout << "You Entered: " << Str1 << endl;
+
+	if (Str1 == "END")
+		exit(0);
+
+
+
+
+
+
+
+
+}
