@@ -10,30 +10,34 @@ using namespace std;
 
 #include <string.h>
 #include <stdlib.h>
+#include <string>
 
 
 void main()
 {
 	cout << "Welcome to Chancellors palindrome finderino" << endl;
+	while (true)
+	{
+		int result;
+		string Str1;
+		string Str2;
 
-	const int MaxChars(20);
+		cout << "Enter a word: ";
+		cin >> Str1;
 
-	int result;
-	char Str1[MaxChars + 1];
-	char Str2[MaxChars + 1];
+		Str2 = "END";
 
-	cout << "Enter a word: ";
-	cin.getline(Str1, MaxChars + 1);
-	if (cin.fail())
-		cin.clear();
-	else;
-	cout << "You Entered: " << Str1 << endl;
-
-	if (Str1 == "END")
-		exit(0);
+		if (Str1 == Str2)
+			exit(0);
 
 
 
+		if (Str1 == string(Str1.rbegin(), Str1.rend()))
+			cout << Str1 << " is a Palindrome" << endl;
+		else
+			cout << Str1 << " is not a Palindrome" << endl;
+			
+	}
 
 
 
