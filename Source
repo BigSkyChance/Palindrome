@@ -1,43 +1,80 @@
 // Chancellor Griffin
-// June 2016
+// June/July 2016
 // Lab 6
-// Palindrome Sensor
-// ******************
+// Palindrome Finder
+
 
 #include <iostream>
+#include <string>
+#include <stdlib.h>
+
 
 using namespace std;
 
-#include <string.h>
-#include <stdlib.h>
-#include <string>
-
-
 void main()
 {
-	cout << "Welcome to Chancellors palindrome finderino" << endl;
+	const int Max(80);
+	char Str1[Max + 1];
+	char Str2[Max + 1];
+	int a;
+	int b;
+	bool Palindrome;
+	char Upper;
+
+	cout << "Welcome to Chancellors Palindrome Detector!" << endl;
+
 	while (true)
 	{
-		int result;
-		string Str1;
-		string Str2;
+		do {
+			b = 0;
+			cout << "Enter a word: ";
+			cin.getline(Str1, Max + 1);
 
-		cout << "Enter a word: ";
-		cin >> Str1;
+			if (Str1[0] != 'E' && Str1[1] != 'N' && Str1[3] != 'D')
+			{
+				cout << "Calculating if " << Str1 << " is a palindrome....." << endl;
+			}
+			else
+			{
+				cout << "Goodbye!" << endl;
+				exit(0);
+			}
+				
+			a = strlen(Str1) - 1;
+			int length = a;
 
-		Str2 = "END";
+			for (int a = 0; a <= length; a++)
+			{
+				Upper = Str1[a];
+				Str1[a] = toupper(Upper);
+			}
 
-		if (Str1 == Str2)
-			exit(0);
+			strcpy(Str2, Str1);
+
+			while (b < length)
+			{
+				if (Str1[b] == Str2[a])
+					Palindrome = true;
+				else
+					Palindrome = false;
+				break;
+				a++;
+				b--;
+			}
+
+			if (Palindrome)
+				cout << Str1 << " is indeed a palindrome." << endl;
+			else
+				cout << Str1 << " is NOT a palindrome." << endl;
 
 
-
-		if (Str1 == string(Str1.rbegin(), Str1.rend()))
-			cout << Str1 << " is a Palindrome" << endl;
-		else
-			cout << Str1 << " is not a Palindrome" << endl;
-			
+		} while (Str1[0] != 'E' && Str1[1] != 'N' && Str1[3] != 'D');
 	}
+}
+
+
+
+
 
 
 
