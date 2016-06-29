@@ -1,0 +1,75 @@
+// Chancellor Griffin
+// June/July 2016
+// Lab 6
+// Palindrome Finder
+
+
+#include <iostream>
+#include <string> // makes the strings work
+#include <stdlib.h>  // So I can use the exit(0) command
+
+
+using namespace std;
+
+void main()
+{
+	const int Max(80); // this is the max characters allowed
+	char Str1[Max + 1]; // String Name [Max characters, plus one for the enter key
+	char Str2[Max + 1];
+	int a; //int for the calculation that makes things go
+	int b; //same as above
+	bool Palindrome; // true or false thingy
+	char Upper; // just need this to make everything uppercase so it doesnt matter what the user inputs (Racecar == RACECAR etc...)
+
+	cout << "Welcome to Chancellors Palindrome Detector!" << endl;
+
+	while (true) // You can skip this at first, this just loops the program so it will keep asking for new words
+	{ // same as above, not needed to start out
+		do {
+			b = 0; // Has to be 0 for the formula way at the botom to work, look at b < length (so it will always run)
+			cout << "Enter a word: ";
+			cin.getline(Str1, Max + 1); // this is the input
+
+			if (Str1[0] != 'E' && Str1[1] != 'N' && Str1[3] != 'D') // this looks complicated, it basically means if the first 3 characters are not END
+			                                                        // The program will do go on as usual, but if they are 'END' then it will do the else
+			                                                        // which closes the program
+			{
+				cout << "Calculating if " << Str1 << " is a palindrome....." << endl;
+			}
+			else
+			{
+				cout << "Goodbye!" << endl;
+				exit(0);
+			}
+				
+			a = strlen(Str1) - 1;
+			int length = a;  // these lines plug the length of the line so we can do the formula... (racecar is 7 characters so.. only calculate 7 spaces)
+
+			for (int a = 0; a <= length; a++)
+			{
+				Upper = Str1[a];
+				Str1[a] = toupper(Upper);
+			} // All this for statement did was make everything upper case so it doesnt confuse upper and lower case
+
+			strcpy(Str2, Str1); // copies the word so we can reverse it
+
+			while (b < length) // formula that reverses it
+			{
+				if (Str1[b] == Str2[a])
+					Palindrome = true;
+				else
+					Palindrome = false;
+				break;
+				a++;
+				b--;
+			}
+
+			if (Palindrome) // Final output if palindrome is true or false
+				cout << Str1 << " is indeed a palindrome." << endl;
+			else
+				cout << Str1 << " is NOT a palindrome." << endl;
+
+
+		} while (Str1[0] != 'E' && Str1[1] != 'N' && Str1[3] != 'D'); // this didnt end up working but i left it in here anyways
+  }
+}
