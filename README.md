@@ -1,9 +1,6 @@
-# Palindrome
+# Palindrome Detector
 
 **Project Completed**
 
-This program will read in a word or phrase and tell the user if it is a palindrome or not.
-
-if the User enters in "END" the program will close
-
-bonus if str is not used.
+A small program that will detect if the sentence or word is the same thing backwards
+ex. Racecar == racecaR, Palindrome found!
